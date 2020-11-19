@@ -28,12 +28,17 @@ techniques to calculate when to start and stop logging your time at work.
 
 [Make]: #make
 
-| Feature     | Description                                                                                            |
-| ----------- | ------------------------------------------------------------------------------------------------------ |
-| GeoFence    | This app will actively track your location to accurately log your time spent at your place of work.    |
-| Google Maps | To set your location of work you will need to use google maps to pin a set of gps coordinates.         |
-| Firebase    | Firebase will be used to store all of the time logs and to calculate a salary at the and of the month. |
-|
+| Feature          | Description                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| GeoFence         | This app will actively track your location to accurately log your time spent at your place of work.      |
+| Google Maps      | To set your location of work you will need to use google maps to pin a set of gps coordinates.           |
+| Firebase         | Firebase will be used to store all of the time logs and to calculate a salary at the and of the month.   |
+| Random Breaks    | You will need to be able to random breaks you've had throughout the day.                                 |
+| Scheduled breaks | Every office has their own break schedule. You will need to be able to keep track of this automatically. |
+| Wages            | Your employer must be able to set an hourly wage.                                                        |
+| Companies        | You must be able to join a company.                                                                      |
+
+
 
 ## Design
 [Design]: #design
