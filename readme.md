@@ -20,7 +20,7 @@ slow and annoying to use. When everyone has break time there is always a
 queue at the check-in/check-out station.
 
 The goal of this project is to eliminate the need for those central
-systems with an app on your phone. This app will use geo fencing
+systems with an app on your phone. This app will use geo-fencing
 techniques to calculate when to start and stop logging your time at work.
 
 ## Make
@@ -38,6 +38,7 @@ techniques to calculate when to start and stop logging your time at work.
 | Wages            | Your employer must be able to set an hourly wage.                                                                                              |
 | Companies        | You must be able to join a company.                                                                                                            |
 | Time-outs        | The app will have some kind of time-out feature where it will stop tracking your location and logging your time. Based on your configurations. |
+| Notifications    | The app will notify you when you've entered/left the time tracking zone and how long you've worked for that day.                               |
 
 Please note that not all of the proposed features are going to be
 implemented due to time constraints.
@@ -48,13 +49,16 @@ implemented due to time constraints.
 + Banners
 + Bottom navigation
 + Buttons
++ Checkboxes
 + Firebase
++ GeoFence
 + Google maps
 + Menus
-+ Checkboxes
++ Push Notifications
 + Snackbars
 + Text fields
 + Time Pickers
 
 ## Design
 [Design]: #design
+
