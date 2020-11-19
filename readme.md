@@ -8,7 +8,6 @@
 [Design]
 
 ## Think
-
 [Think]: #think
 
 In short the app will allow people to automatically log their time at work.
@@ -22,18 +21,9 @@ queue at the check-in/check-out station.
 
 The goal of this project is to eliminate the need for those central
 systems with an app on your phone. This app will use geo fencing
-techniques to calculate when to start and stop logging your time m my personal experience I've noticed that most apps offices have
-some kind of time tracking system. Most of the times this is done with a
-central station and a card containing an nfc chip. But these systems are
-slow and annoying to use. When everyone has break time there is always a
-queue at the check-in/check-out station.
-
-The goal of this project is to eliminate the need for those central
-systems with an app on your phone. This app will use geo fencing
-techniques to calculate when to start and stop logging your timeat work.
+techniques to calculate when to start and stop logging your time at work.
 
 ## Make
-
 [Make]: #make
 
 ###### Features
@@ -58,11 +48,13 @@ implemented due to time constraints.
 + Banners
 + Bottom navigation
 + Buttons
++ Firebase
++ Google maps
 + Menus
 + Checkboxes
++ Snackbars
 + Text fields
 + Time Pickers
-+ 
 
 ## Design
 [Design]: #design
