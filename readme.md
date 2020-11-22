@@ -1,10 +1,8 @@
 # Capstone Project
 [Author: Sander van den Oetelaar](https://www.github.com/KoningSanderPander "My Github")
 
-[Think]
-
-[Make]
-
+[Think]  
+[Make]  
 [Design]
 
 ## Think
@@ -62,3 +60,7 @@ implemented due to time constraints.
 ## Design
 [Design]: #design
 
+The app design is not final yet, but the design will be inspired by the
+Connecteam app
+
+![alt text](https://techstory.in/wp-content/uploads/2020/08/image2-3.png "Connecteam app design inspiration")
