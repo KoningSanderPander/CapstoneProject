@@ -14,9 +14,21 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.CapstoneProject.NoActionBar">
+    <style name="Theme.CapstoneProject.NoActionBar" parent="Theme.CapstoneProject">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="Theme.CapstoneProject">
+        <item name="android:background">@color/design_default_color_primary</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="SplashScreenTheme.Title" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">@color/design_default_color_on_primary</item>
     </style>
 
     <style name="Theme.CapstoneProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

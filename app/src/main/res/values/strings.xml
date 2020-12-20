@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CapstoneProject</string>
+    <string name="app_name">Time logger</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,4 +9,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_request_permissions">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_require_permission">Our apologies, but this application does not work without the permission to access to access your location at any time. Your information will not be sold to advertisers.</string>
+    <string name="allow_permissions">Allow Permissions</string>
 </resources>
