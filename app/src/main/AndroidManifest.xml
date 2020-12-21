@@ -12,24 +12,30 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:name=".util.MyApplication"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.home.RequestPermissionsActivity"
+            android:name=".ui.overview.OverviewActivity"
+            android:label="@string/overview_window_title"
+            android:theme="@style/Theme.CapstoneProject.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.landing.RequestPermissionsActivity"
             android:label="@string/title_activity_request_permissions" />
         <activity
-            android:name=".ui.home.SplashActivity"
+            android:name=".ui.landing.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.CapstoneProject.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".ui.landing.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.CapstoneProject.NoActionBar">
             <intent-filter>

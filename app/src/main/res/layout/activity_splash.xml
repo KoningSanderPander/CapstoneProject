@@ -2,25 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/SplashScreenTheme"
-    tools:context=".ui.home.SplashActivity">
+    style="@style/Theme.CapstoneProject.SplashScreenTheme"
+    tools:context=".ui.landing.SplashActivity">
 
     <ImageView
         android:id="@+id/ivSplashImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/map_icon"
         android:src="@drawable/ic_round_map_24"
         app:layout_constraintBottom_toTopOf="@id/tvSplashTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvSplashTitle"
-        style="@style/SplashScreenTheme.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Theme.CapstoneProject.SplashScreenTheme.Title"
         android:text="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

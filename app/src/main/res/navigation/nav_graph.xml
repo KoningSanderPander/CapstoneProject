@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="nl.svdoetelaar.capstoneproject.ui.FirstFragment"
+        android:name="nl.svdoetelaar.capstoneproject.ui.overview.OverviewFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 

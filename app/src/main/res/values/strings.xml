@@ -13,6 +13,8 @@
     <string name="title_activity_request_permissions">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="app_require_permission">Our apologies, but this application does not work without the permission to access to access your location at any time. Your information will not be sold to advertisers.</string>
+    <string name="app_require_permission">This application does not work without the permission to access to access your location at any time. Your information will not be sold to advertisers.</string>
     <string name="allow_permissions">Allow Permissions</string>
+    <string name="overview_window_title">Overview</string>
+    <string name="map_icon">Map icon</string>
 </resources>
