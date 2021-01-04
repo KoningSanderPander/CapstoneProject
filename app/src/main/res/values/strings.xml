@@ -14,7 +14,15 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="app_require_permission">This application does not work without the permission to access to access your location at any time. Your information will not be sold to advertisers.</string>
-    <string name="allow_permissions">Allow Permissions</string>
+    <string name="allow_permissions">Allow Location Usage</string>
     <string name="overview_window_title">Overview</string>
     <string name="map_icon">Map icon</string>
+    <string name="please_sign_in">This application requires you to be logged in to utilize all of its features. Please sign in or sign up.</string>
+    <string name="sign_in">Sign in</string>
+    <string name="retrieval_firebase_unsuccessful">Retrieval-firebase-task was unsuccessful</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="required_field">Required field</string>
+    <string name="hourly_wage">hourly wage</string>
+    <string name="set_geofence">set geofence</string>
 </resources>

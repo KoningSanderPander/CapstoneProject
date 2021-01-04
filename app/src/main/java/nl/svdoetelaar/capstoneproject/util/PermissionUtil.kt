@@ -15,16 +15,17 @@ class PermissionUtil : MyApplication() {
         )
 
         fun hasPermissions(): Boolean {
+            var hasPermission = true
             for (permission in permissions) {
                 if (ContextCompat.checkSelfPermission(
                         appContext!!,
                         permission
                     ) == PackageManager.PERMISSION_DENIED
                 ) {
-                    return false
+                    hasPermission = false
                 }
             }
-            return true
+            return hasPermission
         }
 
 

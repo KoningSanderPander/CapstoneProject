@@ -5,7 +5,7 @@
     style="@style/Theme.CapstoneProject.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.overview.OverviewActivity">
+    tools:context=".ui.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,5 +22,19 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <include layout="@layout/card_request_permission"
+            android:id="@+id/cardAskLocation"
+            android:visibility="gone"/>
+        <include layout="@layout/card_request_login"
+            android:id="@+id/cardAskLogin"
+            android:visibility="gone"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

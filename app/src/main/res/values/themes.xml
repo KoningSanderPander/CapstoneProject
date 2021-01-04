@@ -19,18 +19,21 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.CapstoneProject.DefaultDimens">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.LinearLayout.Fragment" parent="Theme.CapstoneProject">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="Theme.CapstoneProject.SplashScreenTheme" parent="Theme.CapstoneProject.NoActionBar">
         <item name="android:background">@color/design_default_color_primary</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="Theme.CapstoneProject.Card" parent="Base.CardView">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">24dp</item>
-        <item name="cardElevation">16dp</item>
-        <item name="cardCornerRadius">8dp</item>
     </style>
 
     <style name="Theme.CapstoneProject.SplashScreenTheme.Title" parent="TextAppearance.AppCompat">
@@ -39,6 +42,57 @@
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold|italic</item>
         <item name="android:textColor">@color/design_default_color_on_primary</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.Card" parent="Base.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="cardElevation">16dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.Card.Error" parent="Theme.CapstoneProject.Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/design_default_color_error</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.Card.Error.Text" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">24dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.Card.Error.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">24dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Theme.CapstoneProject.TextInputLayout.OutlinedBox.Required" parent="Theme.CapstoneProject.TextInputLayout.OutlinedBox">
+        <item name="helperText">@string/required_field</item>
     </style>
 
     <style name="Theme.CapstoneProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

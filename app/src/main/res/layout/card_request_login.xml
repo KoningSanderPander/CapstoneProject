@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvRequiresPermissions"
+    style="@style/Theme.CapstoneProject.Card.Error"
+    tools:context=".ui.main.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvRequiresPermissions"
+            style="@style/Theme.CapstoneProject.Card.Error.Text"
+            android:layout_marginBottom="16dp"
+            android:text="@string/please_sign_in"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRequest"
+            style="@style/Theme.CapstoneProject.Card.Error.Button"
+            android:text="@string/sign_in" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import nl.svdoetelaar.capstoneproject.databinding.ActivitySplashBinding
+import nl.svdoetelaar.capstoneproject.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(
                 Intent(
-                    this, LoginActivity::class.java
+                    this, MainActivity::class.java
                 )
             )
         }, 1_000L)

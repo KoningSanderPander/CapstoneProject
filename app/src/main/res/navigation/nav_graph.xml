@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/OverviewFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="nl.svdoetelaar.capstoneproject.ui.overview.OverviewFragment"
+        android:id="@+id/OverviewFragment"
+        android:name="nl.svdoetelaar.capstoneproject.ui.main.overview.OverviewFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        tools:layout="@layout/fragment_overview">
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_OverviewFragment_to_UserInfoFragment"
+            app:destination="@id/UserInfoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="nl.svdoetelaar.capstoneproject.ui.SecondFragment"
+        android:id="@+id/UserInfoFragment"
+        android:name="nl.svdoetelaar.capstoneproject.ui.UserInfoFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        tools:layout="@layout/fragment_user_info">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_UserInfoFragment_to_OverviewFragment"
+            app:destination="@id/OverviewFragment" />
     </fragment>
 </navigation>
