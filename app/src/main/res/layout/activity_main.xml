@@ -29,8 +29,11 @@
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
-        <include layout="@layout/card_request_permission"
-            android:id="@+id/cardAskLocation"
+        <include layout="@layout/card_request_foreground_location"
+            android:id="@+id/card_ask_foreground_location"
+            android:visibility="gone"/>
+        <include layout="@layout/card_request_background_location"
+            android:id="@+id/card_ask_background_location"
             android:visibility="gone"/>
         <include layout="@layout/card_request_login"
             android:id="@+id/cardAskLogin"

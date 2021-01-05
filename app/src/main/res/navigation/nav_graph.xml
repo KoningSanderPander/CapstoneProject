@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/UserInfoFragment"
-        android:name="nl.svdoetelaar.capstoneproject.ui.UserInfoFragment"
+        android:name="nl.svdoetelaar.capstoneproject.ui.main.UserInfoFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_user_info">
         <action

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import nl.svdoetelaar.capstoneproject.databinding.ActivityMainBinding
@@ -20,15 +19,16 @@ class MainActivity : AppCompatActivity() {
     private val userViewModel: UserViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
+//    lateinit var geofencingClient: GeofencingClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+//        geofencingClient = LocationServices.getGeofencingClient(this)
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        checkRequirements()
         if (user == null) {
             startLoginActivity()
         }
@@ -52,20 +52,6 @@ class MainActivity : AppCompatActivity() {
                 startLoginActivity()
             }
         }
-        if (!PermissionUtil.hasPermissions()) {
-            binding.cardAskLocation.root.visibility = View.VISIBLE
-            binding.cardAskLocation.btnRequest.setOnClickListener {
-                requestPermission()
-            }
-        }
-    }
-
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            this,
-            PermissionUtil.permissions,
-            PermissionUtil.REQUEST_CODE_LOCATION_PERMISSION
-        )
     }
 
     override fun onRequestPermissionsResult(
@@ -74,10 +60,17 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         when (requestCode) {
-            PermissionUtil.REQUEST_CODE_LOCATION_PERMISSION -> {
+            PermissionUtil.REQUEST_CODE_FOREGROND_LOCATION_PERMISSION -> {
                 if (grantResults.isNotEmpty()) {
-                    if (PermissionUtil.hasPermissions()) {
-                        binding.cardAskLocation.root.visibility = View.GONE
+                    if (PermissionUtil.hasPermissionForegroundLocation()) {
+                        binding.cardAskForegroundLocation.root.visibility = View.GONE
+                    }
+                }
+            }
+            PermissionUtil.REQUEST_CODE_BACKGROUND_LOCATION_PERMISSION -> {
+                if (grantResults.isNotEmpty()) {
+                    if (PermissionUtil.hasPermissionBackgroundLocation()) {
+                        binding.cardAskBackgroundLocation.root.visibility = View.GONE
                     }
                 }
             }
@@ -94,6 +87,8 @@ class MainActivity : AppCompatActivity() {
                 binding.cardAskLogin.root.visibility = View.GONE
 
                 userViewModel.getUser()
+            } else {
+                checkRequirements()
             }
         }
     }

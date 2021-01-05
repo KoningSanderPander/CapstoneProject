@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Theme.CapstoneProject.LinearLayout.Fragment"
-    tools:context=".ui.UserInfoFragment">
+    tools:context=".ui.main.UserInfoFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Theme.CapstoneProject.TextInputLayout.OutlinedBox.Required"
         android:hint="@string/first_name">
 
-        <com.google.android.material.textfield.TextInputEditText style="@style/Theme.CapstoneProject.DefaultDimens" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstName"
+            style="@style/Theme.CapstoneProject.DefaultDimens" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -16,7 +18,9 @@
         style="@style/Theme.CapstoneProject.TextInputLayout.OutlinedBox.Required"
         android:hint="@string/last_name">
 
-        <com.google.android.material.textfield.TextInputEditText style="@style/Theme.CapstoneProject.DefaultDimens" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastName"
+            style="@style/Theme.CapstoneProject.DefaultDimens" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -25,12 +29,14 @@
         android:hint="@string/hourly_wage">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hourlyWage"
             style="@style/Theme.CapstoneProject.DefaultDimens"
             android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSetGeofence"
         style="@style/Theme.CapstoneProject.Button"
         android:text="@string/set_geofence" />
 
