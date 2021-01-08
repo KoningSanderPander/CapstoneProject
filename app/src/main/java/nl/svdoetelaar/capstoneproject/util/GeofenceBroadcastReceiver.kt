@@ -27,7 +27,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
 
         val geofenceTransition = geofencingEvent.geofenceTransition
 
-        Log.d("geofenceBroadcast", "originial: ${geofenceTransition}")
+        Log.d("geofenceBroadcast", "original: ${geofenceTransition}")
         Log.d("geofenceBroadcast", "enter: ${Geofence.GEOFENCE_TRANSITION_ENTER}")
         Log.d("geofenceBroadcast", "exit: ${Geofence.GEOFENCE_TRANSITION_EXIT}")
 
