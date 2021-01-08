@@ -7,21 +7,25 @@ import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withTimeout
 import nl.svdoetelaar.capstoneproject.R
-import nl.svdoetelaar.capstoneproject.model.Geofence
+import nl.svdoetelaar.capstoneproject.model.GeofenceLocationData
 import nl.svdoetelaar.capstoneproject.util.LoginUtil
+import nl.svdoetelaar.capstoneproject.util.LoginUtil.Companion.user
 
 class GeofenceRepository(private val context: Context) : ParentRepository() {
     private var collection = firestore.collection(context.getString(R.string.geofences))
 
-    private val _geofence: MutableLiveData<Geofence> = MutableLiveData()
+    private val _geofenceLocationData: MutableLiveData<GeofenceLocationData> = MutableLiveData()
     private val _createSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
-    val geofence: LiveData<Geofence> get() = _geofence
+    val geofenceLocationData: LiveData<GeofenceLocationData> get() = _geofenceLocationData
     val createSuccess: LiveData<Boolean> get() = _createSuccess
 
     suspend fun getGeoFence() {
         try {
             withTimeout(timeoutMillisDefault) {
+                if (user == null) {
+                    return@withTimeout
+                }
                 val result: DocumentSnapshot = collection.document(
                     LoginUtil.user?.uid ?: throw GeofenceRetrievalError("user is not logged in")
                 )
@@ -29,9 +33,9 @@ class GeofenceRepository(private val context: Context) : ParentRepository() {
                     .await()
 
                 if (result.data == null) {
-                    _geofence.value = null
+                    _geofenceLocationData.value = null
                 } else {
-                    _geofence.value = Geofence(
+                    _geofenceLocationData.value = GeofenceLocationData(
                         result.data?.get("lat").toString().toDouble(),
                         result.data?.get("lng").toString().toDouble(),
                         result.data?.get("radius").toString().toDouble(),
@@ -39,11 +43,11 @@ class GeofenceRepository(private val context: Context) : ParentRepository() {
                 }
             }
         } catch (e: Exception) {
-            throw GeofenceRetrievalError(context.getString(R.string.retrieval_firebase_unsuccessful))
+            throw GeofenceRetrievalError(e.toString())
         }
     }
 
-    suspend fun createGeoFence(geofence: Geofence) {
+    suspend fun createGeoFence(geofenceLocationData: GeofenceLocationData) {
         try {
             withTimeout(timeoutMillisDefault) {
                 collection.document(
@@ -52,7 +56,7 @@ class GeofenceRepository(private val context: Context) : ParentRepository() {
                         NullPointerException()
                     )
                 )
-                    .set(geofence)
+                    .set(geofenceLocationData)
                     .await()
 
                 _createSuccess.value = true

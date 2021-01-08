@@ -45,4 +45,10 @@
     <string name="users">users</string>
     <string name="map">Map</string>
     <string name="me">Me</string>
+    <string name="location_services_must_be_enabled">Location services must be enabled for this app to work</string>
+    <string name="error_getting_location_settings_resolution">\"Error getting location settings resolution %s"</string>
+    <string name="geofence_entered">Geofence entered</string>
+    <string name="no_geofence_trigger_found">No geofence trigger found!</string>
+    <string name="geofence_added">Geofence added</string>
+    <string name="geofence_not_added">Geofence was not added</string>
 </resources>

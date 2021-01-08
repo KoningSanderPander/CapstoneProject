@@ -37,7 +37,7 @@ class UserRepository(private val context: Context) : ParentRepository() {
                 }
             }
         } catch (e: Exception) {
-            throw UserRetrievalError(context.getString(R.string.retrieval_firebase_unsuccessful))
+            throw UserRetrievalError(e.toString())
         }
     }
 

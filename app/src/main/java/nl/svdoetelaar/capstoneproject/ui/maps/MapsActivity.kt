@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.*
 import com.google.android.material.slider.Slider
 import nl.svdoetelaar.capstoneproject.R
 import nl.svdoetelaar.capstoneproject.databinding.ActivityMapsBinding
-import nl.svdoetelaar.capstoneproject.model.Geofence
+import nl.svdoetelaar.capstoneproject.model.GeofenceLocationData
 import nl.svdoetelaar.capstoneproject.ui.main.MainActivity
 import nl.svdoetelaar.capstoneproject.util.LocationService
 import nl.svdoetelaar.capstoneproject.util.PermissionUtils
@@ -212,7 +212,7 @@ class MapsActivity : AppCompatActivity(),
             }
             geofenceViewModel.createGeofence(
                 with(circles[0]) {
-                    Geofence(
+                    GeofenceLocationData(
                         getCenter().latitude,
                         getCenter().longitude,
                         circleRadiusMeters
