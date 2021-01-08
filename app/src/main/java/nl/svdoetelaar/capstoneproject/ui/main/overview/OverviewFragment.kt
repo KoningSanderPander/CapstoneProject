@@ -28,16 +28,18 @@ class OverviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = getString(R.string.overview_window_title)
 
+
+
         observe()
     }
 
+
+
     private fun observe() {
         userViewModel.user.observe(viewLifecycleOwner, {
-            // TODO
-//            if (it == null)
-//            {
-            findNavController().navigate(R.id.action_OverviewFragment_to_UserInfoFragment)
-//            }
+            if (it == null) {
+                findNavController().navigate(R.id.action_OverviewFragment_to_UserInfoFragment)
+            }
         })
     }
 }

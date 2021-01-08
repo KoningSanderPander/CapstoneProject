@@ -11,7 +11,7 @@ import nl.svdoetelaar.capstoneproject.model.User
 import nl.svdoetelaar.capstoneproject.util.LoginUtil
 
 class UserRepository(private val context: Context) : ParentRepository() {
-    private var collection = firestore.collection("users")
+    private var collection = firestore.collection(context.getString(R.string.users))
 
     private val _user: MutableLiveData<User> = MutableLiveData()
     private val _createSuccess: MutableLiveData<Boolean> = MutableLiveData()

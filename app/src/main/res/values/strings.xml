@@ -41,4 +41,8 @@
     <string name="pattern_dashed">patternDashed</string>
     <string name="pattern_dotted">patternDotted</string>
     <string name="pattern_mixed">patternMixed</string>
+    <string name="geofences">geofences</string>
+    <string name="users">users</string>
+    <string name="map">Map</string>
+    <string name="me">Me</string>
 </resources>

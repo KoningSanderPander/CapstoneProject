@@ -2,14 +2,20 @@ package nl.svdoetelaar.capstoneproject.ui.main
 
 import android.app.Activity
 import android.content.Intent
-import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
+import nl.svdoetelaar.capstoneproject.R
 import nl.svdoetelaar.capstoneproject.databinding.ActivityMainBinding
+import nl.svdoetelaar.capstoneproject.ui.main.overview.OverviewFragment
+import nl.svdoetelaar.capstoneproject.ui.maps.MapsActivity
 import nl.svdoetelaar.capstoneproject.util.LocationService
 import nl.svdoetelaar.capstoneproject.util.LoginUtil
 import nl.svdoetelaar.capstoneproject.util.LoginUtil.Companion.providers
@@ -28,11 +34,43 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        binding.bottomNav.selectedItemId = R.id.bottomNavOverview
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            Log.d("bottomNav", "item.itemId: ${item.itemId}")
+            Log.d("bottomNav", "R.id.bottomNavMap: ${R.id.bottomNavMap}")
+            when (item.itemId) {
+                R.id.bottomNavMap -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            MapsActivity::class.java
+                        )
+                    )
+                    true
+                }
+                R.id.bottomNavOverview -> {
+                    loadFragment(OverviewFragment())
+                    true
+                }
+                R.id.bottomNavUser -> {
+                    loadFragment(UserInfoFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+
         if (user == null) {
             startLoginActivity()
         }
-
     }
+
+    private fun loadFragment(fragment: Fragment) {
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.nav_host_fragment, fragment)
+        ft.commit()
+    }
+
 
     private fun startLoginActivity() {
         startActivityForResult(
@@ -95,4 +133,5 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {}
+
 }

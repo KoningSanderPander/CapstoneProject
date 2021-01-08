@@ -7,54 +7,61 @@ import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withTimeout
 import nl.svdoetelaar.capstoneproject.R
-import nl.svdoetelaar.capstoneproject.model.User
+import nl.svdoetelaar.capstoneproject.model.Geofence
 import nl.svdoetelaar.capstoneproject.util.LoginUtil
 
 class GeofenceRepository(private val context: Context) : ParentRepository() {
-    private var collection = firestore.collection("users")
+    private var collection = firestore.collection(context.getString(R.string.geofences))
 
-    private val _user: MutableLiveData<User> = MutableLiveData()
+    private val _geofence: MutableLiveData<Geofence> = MutableLiveData()
     private val _createSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
-    val user: LiveData<User> get() = _user
+    val geofence: LiveData<Geofence> get() = _geofence
     val createSuccess: LiveData<Boolean> get() = _createSuccess
 
-    suspend fun getUser() {
+    suspend fun getGeoFence() {
         try {
             withTimeout(timeoutMillisDefault) {
-                val result : DocumentSnapshot = collection.document(LoginUtil.user!!.uid)
+                val result: DocumentSnapshot = collection.document(
+                    LoginUtil.user?.uid ?: throw GeofenceRetrievalError("user is not logged in")
+                )
                     .get()
                     .await()
 
                 if (result.data == null) {
-                    _user.value = null
+                    _geofence.value = null
                 } else {
-                    _user.value = User(
-                        result.data?.get("firstName").toString(),
-                        result.data?.get("firstName").toString(),
-                        result.data?.get("hourlyWage").toString().toDouble()
+                    _geofence.value = Geofence(
+                        result.data?.get("lat").toString().toDouble(),
+                        result.data?.get("lng").toString().toDouble(),
+                        result.data?.get("radius").toString().toDouble(),
                     )
                 }
             }
         } catch (e: Exception) {
-            throw UserRetrievalError(context.getString(R.string.retrieval_firebase_unsuccessful))
+            throw GeofenceRetrievalError(context.getString(R.string.retrieval_firebase_unsuccessful))
         }
     }
 
-    suspend fun createUser(user: User) {
+    suspend fun createGeoFence(geofence: Geofence) {
         try {
             withTimeout(timeoutMillisDefault) {
-                collection.document(LoginUtil.user!!.uid)
-                    .set(user)
+                collection.document(
+                    LoginUtil.user?.uid ?: throw GeofenceSaveError(
+                        "user is not logged in",
+                        NullPointerException()
+                    )
+                )
+                    .set(geofence)
                     .await()
 
                 _createSuccess.value = true
             }
         } catch (e: Exception) {
-            throw UserSaveError(e.message.toString(), e)
+            throw GeofenceSaveError(e.message.toString(), e)
         }
     }
 
-    class UserRetrievalError(s: String) : Exception(s)
-    class UserSaveError(s: String, cause: Throwable) : Throwable(s, cause)
+    class GeofenceRetrievalError(s: String) : Exception(s)
+    class GeofenceSaveError(s: String, cause: Throwable) : Throwable(s, cause)
 }

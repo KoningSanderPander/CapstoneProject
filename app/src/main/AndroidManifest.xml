@@ -37,11 +37,6 @@
         <activity
             android:name=".ui.maps.MapsActivity"
             android:label="@string/title_activity_maps" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
@@ -51,11 +46,11 @@
             android:name=".ui.landing.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.CapstoneProject.NoActionBar">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <receiver android:name=".util.GeofenceBroadcastReceiver" />

@@ -1,6 +1,7 @@
 package nl.svdoetelaar.capstoneproject.ui.maps
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
@@ -8,6 +9,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,8 +21,11 @@ import com.google.android.gms.maps.model.*
 import com.google.android.material.slider.Slider
 import nl.svdoetelaar.capstoneproject.R
 import nl.svdoetelaar.capstoneproject.databinding.ActivityMapsBinding
+import nl.svdoetelaar.capstoneproject.model.Geofence
+import nl.svdoetelaar.capstoneproject.ui.main.MainActivity
 import nl.svdoetelaar.capstoneproject.util.LocationService
 import nl.svdoetelaar.capstoneproject.util.PermissionUtils
+import nl.svdoetelaar.capstoneproject.viewmodel.GeofenceViewModel
 import java.util.*
 
 class MapsActivity : AppCompatActivity(),
@@ -28,6 +33,8 @@ class MapsActivity : AppCompatActivity(),
     OnMyLocationClickListener,
     OnMapReadyCallback,
     LocationListener, SeekBar.OnSeekBarChangeListener, AdapterView.OnItemSelectedListener {
+
+    private val geofenceViewModel: GeofenceViewModel by viewModels()
 
     companion object {
         private const val minTime = 50L
@@ -120,6 +127,9 @@ class MapsActivity : AppCompatActivity(),
             return true
         }
 
+        fun getCenter(): LatLng {
+            return circle.center
+        }
 
         fun onCircleMoved(center: LatLng) {
             this.circleCenter = center
@@ -191,10 +201,36 @@ class MapsActivity : AppCompatActivity(),
         clickabilityCheckbox = findViewById(R.id.toggleClickability)
 
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.bottomNavMap) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
+
+        binding.btnConfirmWorkLocation.setOnClickListener {
+            if (!LocationService.hasPermissionBackgroundLocation()) {
+                LocationService.requestBackgroundLocation(this)
+            }
+            geofenceViewModel.createGeofence(
+                with(circles[0]) {
+                    Geofence(
+                        getCenter().latitude,
+                        getCenter().longitude,
+                        circleRadiusMeters
+                    )
+                }
+            )
+        }
+
+        // If it works, it works. No questions from the audience please.
+        geofenceViewModel.createSuccess.observe(mapFragment.viewLifecycleOwner, {
+            if (it) {
+                startActivity(
+                    Intent(this, MainActivity::class.java)
+                )
+            }
+        })
+        geofenceViewModel.getGeofence()
+
     }
 
     private fun getResourceStrings() = (patterns).map { getString(it.first) }.toTypedArray()

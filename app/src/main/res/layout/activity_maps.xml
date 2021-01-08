@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/map"
+        android:id="@+id/bottomNavMap"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -128,12 +128,12 @@
         android:layout_marginHorizontal="24dp"
         android:valueFrom="10"
         android:valueTo="500"
-        map:layout_constraintBottom_toTopOf="@+id/materialButton2"
+        map:layout_constraintBottom_toTopOf="@+id/btnConfirmWorkLocation"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
+        android:id="@+id/btnConfirmWorkLocation"
         style="@style/Theme.CapstoneProject.Button"
         android:layout_marginBottom="24dp"
         android:text="@string/confirm_work_location"
