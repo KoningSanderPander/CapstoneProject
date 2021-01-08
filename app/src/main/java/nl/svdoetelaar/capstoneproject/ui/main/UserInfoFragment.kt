@@ -1,5 +1,6 @@
 package nl.svdoetelaar.capstoneproject.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,9 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import nl.svdoetelaar.capstoneproject.databinding.FragmentUserInfoBinding
 import nl.svdoetelaar.capstoneproject.model.User
+import nl.svdoetelaar.capstoneproject.ui.maps.MapsActivity
+import nl.svdoetelaar.capstoneproject.util.LocationService
 import nl.svdoetelaar.capstoneproject.util.MyApplication
-import nl.svdoetelaar.capstoneproject.util.PermissionUtil
 import nl.svdoetelaar.capstoneproject.viewmodel.UserViewModel
 
 class UserInfoFragment : Fragment() {
@@ -65,8 +67,13 @@ class UserInfoFragment : Fragment() {
                     )
                 )
 
-                if (!PermissionUtil.hasPermissionForegroundLocation()) {
-                    PermissionUtil.requestForegroundLocation(requireActivity())
+                if (!LocationService.hasPermissionFineLocation()) {
+                    LocationService.requestFineLocation(requireActivity())
+                }
+                if (LocationService.hasPermissionFineLocation()) {
+                    startActivity(
+                        Intent(context, MapsActivity::class.java)
+                    )
                 }
             } else {
                 Snackbar.make(view, "Not all required fields are filled in", Snackbar.LENGTH_LONG)

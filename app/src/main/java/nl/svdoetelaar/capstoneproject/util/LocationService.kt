@@ -2,39 +2,42 @@ package nl.svdoetelaar.capstoneproject.util
 
 import android.Manifest
 import android.app.Activity
+import android.app.Service
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
+import android.os.IBinder
 import androidx.core.content.ContextCompat
+import nl.svdoetelaar.capstoneproject.ui.maps.MapsActivity
 
-class PermissionUtil : MyApplication() {
+class LocationService : Service() {
 
     companion object {
-        const val REQUEST_CODE_FOREGROND_LOCATION_PERMISSION = 100
+        const val REQUEST_CODE_FINE_LOCATION_PERMISSION = 100
         const val REQUEST_CODE_BACKGROUND_LOCATION_PERMISSION = 101
 
         const val backgroundLocation = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-        const val foregroundLocation = Manifest.permission.ACCESS_FINE_LOCATION
+        const val fineLocation = Manifest.permission.ACCESS_FINE_LOCATION
 
-
-        fun hasPermissionForegroundLocation(): Boolean {
+        fun hasPermissionFineLocation(): Boolean {
             return ContextCompat.checkSelfPermission(
-                appContext!!,
-                foregroundLocation
+                MyApplication.appContext!!,
+                fineLocation
             ) == PackageManager.PERMISSION_GRANTED
         }
 
         fun hasPermissionBackgroundLocation(): Boolean {
             return ContextCompat.checkSelfPermission(
-                appContext!!,
+                MyApplication.appContext!!,
                 backgroundLocation
             ) == PackageManager.PERMISSION_GRANTED
         }
 
-        fun requestForegroundLocation(activity: Activity) {
+        fun requestFineLocation(activity: Activity) {
             activity.requestPermissions(
-                arrayOf(foregroundLocation),
-                REQUEST_CODE_FOREGROND_LOCATION_PERMISSION
+                arrayOf(fineLocation),
+                REQUEST_CODE_FINE_LOCATION_PERMISSION
             )
-
         }
 
         fun requestBackgroundLocation(activity: Activity) {
@@ -43,7 +46,9 @@ class PermissionUtil : MyApplication() {
                 REQUEST_CODE_BACKGROUND_LOCATION_PERMISSION
             )
         }
+    }
 
-
+    override fun onBind(intent: Intent?): IBinder? {
+        return null
     }
 }

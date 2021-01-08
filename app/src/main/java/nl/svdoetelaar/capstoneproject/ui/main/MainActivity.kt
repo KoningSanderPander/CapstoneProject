@@ -2,6 +2,7 @@ package nl.svdoetelaar.capstoneproject.ui.main
 
 import android.app.Activity
 import android.content.Intent
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -9,22 +10,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import nl.svdoetelaar.capstoneproject.databinding.ActivityMainBinding
+import nl.svdoetelaar.capstoneproject.util.LocationService
 import nl.svdoetelaar.capstoneproject.util.LoginUtil
 import nl.svdoetelaar.capstoneproject.util.LoginUtil.Companion.providers
 import nl.svdoetelaar.capstoneproject.util.LoginUtil.Companion.user
-import nl.svdoetelaar.capstoneproject.util.PermissionUtil
 import nl.svdoetelaar.capstoneproject.viewmodel.UserViewModel
 
 class MainActivity : AppCompatActivity() {
     private val userViewModel: UserViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
-//    lateinit var geofencingClient: GeofencingClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-//        geofencingClient = LocationServices.getGeofencingClient(this)
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
@@ -60,16 +59,18 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         when (requestCode) {
-            PermissionUtil.REQUEST_CODE_FOREGROND_LOCATION_PERMISSION -> {
+            LocationService.REQUEST_CODE_FINE_LOCATION_PERMISSION -> {
                 if (grantResults.isNotEmpty()) {
-                    if (PermissionUtil.hasPermissionForegroundLocation()) {
+                    if (LocationService.hasPermissionFineLocation()) {
                         binding.cardAskForegroundLocation.root.visibility = View.GONE
+                    } else {
+                        binding.cardAskForegroundLocation.root.visibility = View.VISIBLE
                     }
                 }
             }
-            PermissionUtil.REQUEST_CODE_BACKGROUND_LOCATION_PERMISSION -> {
+            LocationService.REQUEST_CODE_BACKGROUND_LOCATION_PERMISSION -> {
                 if (grantResults.isNotEmpty()) {
-                    if (PermissionUtil.hasPermissionBackgroundLocation()) {
+                    if (LocationService.hasPermissionBackgroundLocation()) {
                         binding.cardAskBackgroundLocation.root.visibility = View.GONE
                     }
                 }

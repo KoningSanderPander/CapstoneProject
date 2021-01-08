@@ -16,7 +16,7 @@
             android:id="@+id/tvRequiresPermissions"
             style="@style/Theme.CapstoneProject.Card.Error.Text"
             android:layout_marginBottom="16dp"
-            android:text="@string/app_require_foreground_location"
+            android:text="@string/app_require_fine_location"
             app:layout_constraintBottom_toTopOf="@+id/materialButton" />
 
         <com.google.android.material.button.MaterialButton

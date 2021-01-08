@@ -33,9 +33,11 @@ class OverviewFragment : Fragment() {
 
     private fun observe() {
         userViewModel.user.observe(viewLifecycleOwner, {
-            if (it == null) {
-                findNavController().navigate(R.id.action_OverviewFragment_to_UserInfoFragment)
-            }
+            // TODO
+//            if (it == null)
+//            {
+            findNavController().navigate(R.id.action_OverviewFragment_to_UserInfoFragment)
+//            }
         })
     }
 }

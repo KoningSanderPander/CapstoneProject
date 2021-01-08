@@ -13,7 +13,7 @@
     <string name="title_activity_request_permissions">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="app_require_foreground_location">This application does not work without the permission to access to access your location.</string>
+    <string name="app_require_fine_location">This application does not work without the permission to access to access your location.</string>
     <string name="app_require_background_location">This application does not work without the permission to access to access your location in the background. Your information will not be sold to advertisers.</string>
     <string name="allow_foreground_location">Allow Location</string>
     <string name="allow_background_location">Allow Background Location</string>
@@ -28,4 +28,17 @@
     <string name="hourly_wage">hourly wage</string>
     <string name="set_geofence">set geofence</string>
     <string name="title_activity_maps">Map</string>
+    <string name="confirm_work_location">Confirm work location</string>
+    <string name="properties_circle">properties circle</string>
+    <string name="fill_hue">fill hue</string>
+    <string name="fill_alpha">fill alpha</string>
+    <string name="stroke_width">stroke width</string>
+    <string name="stroke_hue">stroke hue</string>
+    <string name="stroke_alpha">stroke alpha</string>
+    <string name="stroke_pattern">stroke pattern</string>
+    <string name="clickable">clickable</string>
+    <string name="pattern_solid">patternSolid</string>
+    <string name="pattern_dashed">patternDashed</string>
+    <string name="pattern_dotted">patternDotted</string>
+    <string name="pattern_mixed">patternMixed</string>
 </resources>
