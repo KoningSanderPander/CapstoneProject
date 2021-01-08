@@ -225,8 +225,7 @@ class MapsActivity : AppCompatActivity(),
                 }
             }
 
-            setOnMarkerClickListener(object : GoogleMap.OnMarkerDragListener,
-                GoogleMap.OnMarkerClickListener {
+            setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
                 override fun onMarkerDragStart(marker: Marker?) {
                     if (marker != null) {
                         onMarkerMoved(marker)
@@ -243,10 +242,6 @@ class MapsActivity : AppCompatActivity(),
                     if (marker != null) {
                         onMarkerMoved(marker)
                     }
-                }
-
-                override fun onMarkerClick(p0: Marker?): Boolean {
-                    return false
                 }
             })
 

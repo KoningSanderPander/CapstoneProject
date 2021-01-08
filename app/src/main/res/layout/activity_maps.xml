@@ -114,7 +114,7 @@
                 android:id="@+id/toggleClickability"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:checked="false"
                 android:onClick="toggleClickability"
                 android:text="@string/clickable" />
         </TableRow>
@@ -135,6 +135,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton2"
         style="@style/Theme.CapstoneProject.Button"
+        android:layout_marginBottom="24dp"
         android:text="@string/confirm_work_location"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
